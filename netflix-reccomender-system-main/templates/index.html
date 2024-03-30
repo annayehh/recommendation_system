@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Netflix Rating Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Netflix Rating Predictor</h1>
+        <div class="form-container">
+            <form method="POST">
+                <div class="form-group">
+                    <label for="tmdb_score">TMDB Score:</label>
+                    <input type="number" class="form-control" step="0.01" name="tmdb_score" required>
+                </div>
+                <div class="form-group">
+                    <label for="imdb_votes">IMDB Votes</label>
+                    <input type="number" class="form-control" name="imdb_votes" required>
+                </div>
+                <div class="form-group">
+                    <label for="runtime">Runtime</label>
+                    <input type="number" class="form-control" name="runtime" required>
+                </div>
+                <div class="form-group">
+                    <label for="release_year">Release Year</label>
+                    <input type="number" class="form-control" name="release_year" required>
+                </div>
+                <div class="form-group">
+                    <label for="seasons">Seasons</label>
+                    <input type="number" class="form-control" name="seasons" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Calculate</button>
+            </form>
+        </div>
+
+        {% if result %}
+        <div class="result">
+            <h3>{{ result }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
